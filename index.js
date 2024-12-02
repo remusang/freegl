@@ -6,6 +6,7 @@ const app = express();
 app.set("json spaces", 2);
 app.use(cors());
 app.use(bodyParser.json())
+app.use(bodyParser.urlencoded({ extended: true }))
 
 const download = async (res, url, filename) => {
   try {

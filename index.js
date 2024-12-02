@@ -1,14 +1,12 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser')
-const favicon = require('serve-favicon');
 
 const app = express();
 app.set("json spaces", 2);
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
-app.use(favicon('./favicon.ico'));
 
 const download = async (res, url, filename) => {
   try {
@@ -29,6 +27,17 @@ const getDirect = async (url) => {
 };
 
 const { gl, gt, version } = require("./main.json");
+
+app.use('/favicon.ico', (req, res) => {
+  const faviconPath = path.join(__dirname, 'favicon.ico');
+  fs.readFile(faviconPath, (err, data) => {
+    if (err) {
+      return res.status(500).send('Error loading favicon');
+    }
+    res.setHeader('Content-Type', 'image/x-icon');
+    res.send(data);
+  });
+});
 
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);

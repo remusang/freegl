@@ -1,12 +1,15 @@
 const express = require("express");
 const cors = require("cors");
 const bodyParser = require('body-parser')
+const favicon = require('serve-favicon');
+const path = require("path")
 
 const app = express();
 app.set("json spaces", 2);
 app.use(cors());
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({ extended: true }))
+app.use(favicon(path.join(__dirname, 'public', 'favicon.ico')));
 
 const download = async (res, url, filename) => {
   try {

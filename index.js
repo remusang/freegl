@@ -43,9 +43,13 @@ app.get("/gt", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", growlauncher: `${req.protocol}://${req.get('host')}/gl`, growtopia: `${req.protocol}://${req.get('host')}/gt`, version });
+  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", growlauncher: `https://${req.get('host')}/gl`, growtopia: `https://${req.get('host')}/gt`, version });
 });
 
+app.use('*', (req, res) => {
+  res.redirect('/');
+});
+                         
 app.listen(3000);
 
 module.exports = app

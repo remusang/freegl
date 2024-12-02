@@ -1,6 +1,5 @@
 const express = require("express");
 const cors = require("cors");
-const axios = require("axios")
 const bodyParser = require('body-parser')
 
 const app = express();
@@ -11,15 +10,16 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const download = async (res, url, filename) => {
   try {
-    const { data } = await axios({ url, responseType: "arraybuffer" });
+    const response = await fetch(url);
+    if (!response.ok) throw new Error('Network response was not ok');
+    const data = await response.arrayBuffer();
     res.setHeader("Content-Disposition", `attachment; filename=${filename}`);
     res.setHeader("Content-Type", "application/vnd.android.package-archive");
-    res.send(data);  // Sending the file as a buffer
+    res.send(Buffer.from(data));  // Sending the file as a buffer
   } catch {
     res.status(500).json({ message: "Download failed" });
   }
 };
-
 const getDirect = async (url) => {
   const response = await fetch("https://api.agatz.xyz/api/mediafire?url=" + url)
   const data = await response.json()

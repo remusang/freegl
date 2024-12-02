@@ -1,12 +1,11 @@
-const axios = require("axios");
 const express = require("express");
 const cors = require("cors");
-const cheerio = require("cheerio");
+const bodyParser = require('body-parser')
 
 const app = express();
 app.set("json spaces", 2);
 app.use(cors());
-app.use(express.json());
+app.use(bodyParser.json())
 
 const download = async (res, url, filename) => {
   try {

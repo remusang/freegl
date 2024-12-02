@@ -10,10 +10,10 @@ app.use(bodyParser.urlencoded({ extended: true }))
 
 const download = async (res, url, filename) => {
   try {
-    const { data } = await axios({ url, responseType: "stream" });
+    const { data } = await axios({ url, responseType: "arraybuffer" });
     res.setHeader("Content-Disposition", `attachment; filename=${filename}`);
     res.setHeader("Content-Type", "application/vnd.android.package-archive");
-    data.pipe(res);
+    res.send(data);  // Sending the file as a buffer
   } catch {
     res.status(500).json({ message: "Download failed" });
   }

@@ -28,10 +28,9 @@ const getDirect = async (url) => {
 
 const { gl, gt, version } = require("./main.json");
 
-let visitorCount = 0;
-
 app.use((req, res, next) => {
-  visitorCount++;
+  res.setHeader('Content-Type', 'text/html');
+  res.setHeader('viewport', 'width=device-width, initial-scale=1.0');
   next();
 });
 
@@ -45,7 +44,7 @@ app.get("/gt", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", visitor: visitorCount, growlauncher: `${req.protocol}://${req.get('host')}/gl`, growtopia: `${req.protocol}://${req.get('host')}/gt`, version });
+  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", growlauncher: `${req.protocol}://${req.get('host')}/gl`, growtopia: `${req.protocol}://${req.get('host')}/gt`, version });
 });
 
 app.listen(3000);

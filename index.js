@@ -28,17 +28,6 @@ const getDirect = async (url) => {
 
 const { gl, gt, version } = require("./main.json");
 
-app.use('/favicon.ico', (req, res) => {
-  const faviconPath = path.join(__dirname, 'favicon.ico');
-  fs.readFile(faviconPath, (err, data) => {
-    if (err) {
-      return res.status(500).send('Error loading favicon');
-    }
-    res.setHeader('Content-Type', 'image/x-icon');
-    res.send(data);
-  });
-});
-
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);
   download(res, fileUrl, "GrowLauncher_v6.1.17.apk");

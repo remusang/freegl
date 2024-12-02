@@ -28,6 +28,13 @@ const getDirect = async (url) => {
 
 const { gl, gt, version } = require("./main.json");
 
+let visitorCount = 0;
+
+app.use((req, res, next) => {
+  visitorCount++;
+  next();
+});
+
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);
   download(res, fileUrl, "GrowLauncher_v6.1.17.apk");
@@ -38,7 +45,7 @@ app.get("/gt", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", growlauncher: `${req.protocol}://${req.get('host')}/gl`, growtopia: `${req.protocol}://${req.get('host')}/gt`, version });
+  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", visitor: visitorCount, growlauncher: `${req.protocol}://${req.get('host')}/gl`, growtopia: `${req.protocol}://${req.get('host')}/gt`, version });
 });
 
 app.listen(3000);

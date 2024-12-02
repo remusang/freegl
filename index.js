@@ -15,7 +15,7 @@ const download = async (res, url, filename) => {
     res.setHeader("Content-Type", "application/vnd.android.package-archive");
     data.pipe(res);
   } catch {
-    res.status(500).send("Download failed");
+    res.status(500).json({ message: "Download failed" });
   }
 };
 

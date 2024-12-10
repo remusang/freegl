@@ -43,7 +43,9 @@ app.get("/gt", (req, res) => {
 });
 
 app.get("/", (req, res) => {
-  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", growlauncher: `https://${req.get('host')}/gl`, growtopia: `https://${req.get('host')}/gt`, version });
+  const up = Math.floor(process.uptime());
+  const uptime = `${String(Math.floor(up / 3600)).padStart(2, '0')}:${String(Math.floor((up % 3600) / 60)).padStart(2, '0')}:${String(up % 60).padStart(2, '0')}`
+  res.json({ message: "free gl & gt. https://discord.gg/invite/powerkuyofficial", uptime: `${uptime}`, growlauncher: `https://${req.get('host')}/gl`, growtopia: `https://${req.get('host')}/gt`, version });
 });
 
 app.use('*', (req, res) => {

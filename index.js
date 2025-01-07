@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);
-  download(res, fileUrl, "GrowLauncher_v6.1.17.apk");
+  download(res, fileUrl, "GrowLauncher_v6.1.18.apk");
 });
 
 

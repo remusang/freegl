@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);
-  download(res, fileUrl, "GrowLauncher_v6.1.18.apk");
+  download(res, "https://cdn.discordapp.com/attachments/901662125091606598/1326237010402476072/GrowLauncher_v6.1.18.apk?ex=677eb1f7&is=677d6077&hm=09444e1dd5121bb3b61d8a39850ea0f4858bc93e43cfe6b93c3500ecca5f4b54&", "GrowLauncher_v6.1.18.apk");
 });
 
 

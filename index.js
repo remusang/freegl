@@ -146,6 +146,7 @@ app.get("/", async(req, res) => {
         <h1 class="title">🚀 GrowLauncher</h1>
         <p class="description">🚀 GrowLauncher is a launcher app for Growtopia, it can run Lua scripts, cheat menus and more! 😆</p>
         <button class="download-button" onclick="downloadFile()">⬇️ Download Now!</button>
+        <p class="footer">🆕 Supported GT Version: 5.02</p>
         <p class="footer">🌐 This site is not from PowerKuy, but the original source of GrowLauncher comes from PowerKuy. <a href="https://discord.gg/invite/powerkuyofficial" target="_blank">Visit PowerKuy Discord! 💬</a></p>
     </div>
 

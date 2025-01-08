@@ -143,7 +143,8 @@ app.get("/", async(req, res) => {
 </head>
 <body>
     <div class="container">
-        <h1 class="title">🚀 GrowLauncher</h1>
+        <img src="https://files.catbox.moe/xdw5jc.png" alt="gl" width="100" height="100">
+        <h1 class="title">GrowLauncher</h1>
         <p class="description">🚀 GrowLauncher is a launcher app for Growtopia, it can run Lua scripts, cheat menus and more! 😆</p>
         <button class="download-button" onclick="downloadFile()">⬇️ Download Now!</button>
         <p class="footer">🆕 Supported GT Version: 5.02</p>

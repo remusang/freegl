@@ -35,7 +35,7 @@ app.use((req, res, next) => {
 
 app.get("/gl", async (req, res) => {
   const fileUrl = await getDirect(gl);
-  download(res, "https://cdn.discordapp.com/attachments/901662125091606598/1326364757925695488/GrowLauncher_v6.1.19.apk?ex=677f28f0&is=677dd770&hm=427727317c59e5877252cab6be0302173d3ae343fddefd5ba714bcee14a155bc&", "GrowLauncher_v6.1.19.apk");
+  download(res, "https://github.com/remusang/gl/raw/refs/heads/main/GrowLauncher_v6.1.19.apk", "GrowLauncher_v6.1.19.apk");
 });
 
 
@@ -81,6 +81,7 @@ app.get("/", async(req, res) => {
             width: 100%;
             box-shadow: 0 12px 24px rgba(0, 0, 0, 0.6);
             animation: fadeIn 1s ease-in-out;
+            border: 2px solid rgba(255, 255, 255, 0.2)
         }
 
         @keyframes fadeIn {
@@ -121,6 +122,7 @@ app.get("/", async(req, res) => {
             transition: background 0.3s ease, transform 0.3s ease;
             outline: none;
             box-shadow: 0 8px 15px rgba(0, 0, 0, 0.4);
+            border: 2px solid rgba(255, 255, 255, 0.2)
         }
 
         .download-button:hover {
@@ -143,7 +145,7 @@ app.get("/", async(req, res) => {
 </head>
 <body>
     <div class="container">
-        <img src="https://files.catbox.moe/xdw5jc.png" alt="gl" width="100" height="100">
+        <img src="https://files.catbox.moe/xdw5jc.png" alt="gl" width="140" height="140">
         <h1 class="title">GrowLauncher</h1>
         <p class="description">🚀 GrowLauncher is a launcher app for Growtopia, it can run Lua scripts, cheat menus and more! 😆</p>
         <button class="download-button" onclick="downloadFile()">⬇️ Download Now!</button>
